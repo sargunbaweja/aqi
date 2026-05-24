@@ -51,3 +51,24 @@ def get_monthly_by_year(year: int):
     data = cursor.fetchall()
     conn.close()
     return {"year": year, "data": list(data)}
+
+
+# --- Route 4: Get climate data ---
+@app.get("/climate")
+def get_climate():
+
+    conn = get_connection()
+
+    cursor = conn.cursor(
+        cursor_factory=psycopg2.extras.RealDictCursor
+    )
+
+    cursor.execute(
+        "SELECT * FROM climate_data;"
+    )
+
+    data = cursor.fetchall()
+
+    conn.close()
+
+    return {"data": list(data)}
