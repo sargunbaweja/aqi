@@ -1,0 +1,14 @@
+<<<<<<< HEAD
+services:
+  - type: web
+    name: aqi-api
+    env: python
+    buildCommand: pip install -r requirements.txt
+=======
+services:
+  - type: web
+    name: aqi-api
+    env: python
+    buildCommand: pip install -r requirements.txt
+>>>>>>> ac26e120060b59076daa64986ab89473c39dd9a2
+    startCommand: uvicorn aqi:app --host 0.0.0.0 --port 10000
