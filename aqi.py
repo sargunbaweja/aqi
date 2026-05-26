@@ -87,7 +87,7 @@ def get_openaq_data():
     cursor.execute(
         """
         SELECT * FROM openaq_data
-        ORDER BY datetime_utc DESC;
+        ORDER BY datetimeUtc DESC;
         """
     )
 
