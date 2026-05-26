@@ -85,10 +85,10 @@ def get_openaq_data():
     )
 
     cursor.execute(
-        """
-        SELECT * FROM openaq_data
-        ORDER BY datetimeUtc DESC;
-        """
+        
+        "SELECT * FROM openaq_data;"
+        
+        
     )
 
     data = cursor.fetchall()
