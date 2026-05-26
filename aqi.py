@@ -72,3 +72,27 @@ def get_climate():
     conn.close()
 
     return {"data": list(data)}
+
+
+
+@app.get("/openaq")
+def get_openaq_data():
+
+    conn = get_connection()
+
+    cursor = conn.cursor(
+        cursor_factory=psycopg2.extras.RealDictCursor
+    )
+
+    cursor.execute(
+        """
+        SELECT * FROM openaq_measurements
+        ORDER BY datetime_utc DESC;
+        """
+    )
+
+    data = cursor.fetchall()
+
+    conn.close()
+
+    return {"data": list(data)}
